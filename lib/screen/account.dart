@@ -21,7 +21,7 @@ class _AccountState extends State<Account> {
               padding: const EdgeInsets.only(right: 15.0, top: 18),
               child: InkWell(
                   onTap: (){
-//                    Navigator.push(context, MaterialPageRoute(builder: (context)=>EditProfile()));
+//
                   },
                   child: Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),)),
             )
