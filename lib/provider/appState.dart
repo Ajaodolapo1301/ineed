@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:ineed_app/model/errand.dart';
 
 class AppState with ChangeNotifier{
 
@@ -19,6 +20,9 @@ class AppState with ChangeNotifier{
     notifyListeners();
   }
 
+  List <Errand>addProduct =[
+
+  ];
 
 
 
@@ -28,4 +32,24 @@ class AppState with ChangeNotifier{
 
 
   }
+
+
+
+
+  List timeline = [
+
+    {
+      "name": "Ola",
+      "pics" : "images/gool.png",
+
+      "time" : " 2 hours ago",
+      "location" : "Lagos",
+      "text" : "  ' Dui`s aute irure dolor in reprehenderit in voluptate quis nostrud' "
+          "  ' exercitation ullamco laboris nisi ut aliquip ex ea commodo qui' " ,
+      "price" :  '17000',
+    },
+
+
+  ];
+
 }

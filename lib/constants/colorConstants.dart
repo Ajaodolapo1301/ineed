@@ -11,7 +11,7 @@ const kBlue1 = Color(0xFF007FBA);
 const kRegButton= Color(0xffDADEE3);
 const kText = Color(0xff1B3760);
 
-const kPrimaryColor = Color(0xff229858);
+const kPrimaryColor = Color(0xff23527c);
 
 const  kOrange = Color(0xffF15F22);
 

@@ -29,9 +29,7 @@ class _AccountState extends State<Account> {
           actionsIconTheme: IconThemeData(color: Colors.black),
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
-          leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: (){
-            Navigator.pop(context);
-          },),
+
         ),
 
 

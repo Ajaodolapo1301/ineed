@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ineed_app/constants/colorConstants.dart';
 import 'package:ineed_app/provider/appState.dart';
 import 'package:ineed_app/reuseable/reuse.dart';
+import 'package:ineed_app/screen/home.dart';
 import 'package:provider/provider.dart';
 
 class SecondPage extends StatefulWidget {
@@ -53,6 +54,7 @@ AppState appState;
           ],
         ),
         body: Column(
+
           children: <Widget>[
             Row(
               children: <Widget>[
@@ -64,14 +66,7 @@ AppState appState;
                         colour: Colors.red,
                         margin: EdgeInsets.only(left: 20.0, bottom: 10.0),
                       ),
-//                      Points(),
-//                      Points(),
-//                      Points(),
-//                      Points(),
-//                      PointsWithColor(
-//                        colour: Colors.green,
-//                        margin: EdgeInsets.only(
-//                            left: 20.0, top: 10.0, bottom: 50.0),
+
 //                      )
                     ],
                   ),
@@ -135,17 +130,7 @@ AppState appState;
 //                          ),
 //                        ),
 
-                      InkWell(
-                        onTap: (){
-//                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Waiting()))
-                        },
-                        child: Container(
-                          width: 100,
-                          height: 40,
-                          color: kPrimaryColor,
-                          child: Center(child: Text('Place',style: TextStyle(color: Colors.white), )),
-                        ),
-                      )
+
 
                       ],
                     ),
@@ -153,9 +138,17 @@ AppState appState;
                 )
               ],
             ),
-            SizedBox(
-              height: 70.0,
-            ),
+            InkWell(
+              onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+              },
+              child: Container(
+                width: 100,
+                height: 40,
+                color: kPrimaryColor,
+                child: Center(child: Text('Place',style: TextStyle(color: Colors.white), )),
+              ),
+            )
 //            Row(
 //              children: <Widget>[
 //                buttons(color: Colors.green, image: 'images/surface1.png'),
