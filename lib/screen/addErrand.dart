@@ -45,14 +45,7 @@ final _formkey = GlobalKey<FormState>();
             SliverList(
                 delegate: SliverChildListDelegate(
                     [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Container(
-                              margin: EdgeInsets.only(right: 30),
-                              child: SvgPicture.asset('images/bell.svg')),
-                        ],
-                      ),
+
                       Padding(
                         padding: const EdgeInsets.only(right: 20, left: 20),
                         child: Container(
@@ -64,6 +57,7 @@ final _formkey = GlobalKey<FormState>();
                               Row(
                                 children: <Widget>[
                                   Icon(Icons.location_on, color: kPrimaryColor,),
+                                  SizedBox(width: 10,),
                                   Text("you are currently in ${appState.address == null ? "..." : appState.address }", style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold, fontSize: 18),),
                                 ],
                               ),
@@ -76,63 +70,14 @@ final _formkey = GlobalKey<FormState>();
 
                       SizedBox(height: 20.0,),
 
-//                      Row(
-//                        children: <Widget>[
-//                          Expanded(
-//                            flex: 2,
-//                            child: Container(
-////                                    height: 200,
-//                              child: TextFormField(
-////                              keyboardType: TextInputType.multiline,
-//                                  maxLines: null,
-//                                  decoration: InputDecoration(
-////                                        suffixIcon:   Icon(Icons.person),
-//                                      labelText: 'Items' ,
-//                                      labelStyle: TextStyle(fontSize: 20, ),
-//                                      border: OutlineInputBorder()
-//                                  ),
-//                                  validator: (value) {
-//                                    if (value.isEmpty) {
-//                                      return ' This field can not be empty';
-//                                    }
-//                                    items= value;
-//                                    return null;
-//                                  }
-//                              ),
-//                            ),
-//                          ),
-//                          SizedBox(width: 10,),
-//                          Expanded(
-//                            child: Container(
-////                                    height: 200,
-//                              child: TextField(
-//                                  inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-//                                  keyboardType: TextInputType.number,
-////                                    decoration: InputDecoration(
-////                                        suffixIcon:   Icon(Icons.person),
-////                                        labelText: 'Email' ,
-////                                        labelStyle: TextStyle(fontSize: 20, )
-////                                    ),
-////                              keyboardType: TextInputType.multiline,
-//                                  maxLines: null,
-//                                  decoration: InputDecoration(
-////                                        suffixIcon:   Icon(Icons.person),
-//                                      labelText: 'Price' ,
-//                                      labelStyle: TextStyle(fontSize: 20, ),
-//                                      border: OutlineInputBorder()
-//                                  )
-//                              ),
-//                            ),
-//                          ),
-//                        ],
-//                      ),
+
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
 
-                            Text("Add items to get and price your are will to pay for procurement"),
+                            Text("Add items to get and price your are will to pay for procurement",style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold, fontSize: 18)),
                             SizedBox(height: 20.0,),
                             Padding(
                               padding: const EdgeInsets.all(20.0),
@@ -232,28 +177,29 @@ final _formkey = GlobalKey<FormState>();
                                       ),
                                       Expanded(
                                         flex: 5,
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            ListTile(
-                                              title: Text('Drop off',
-                                                  style: TextStyle(
-                                                      fontSize: 13.0, color: Colors.grey)),
-                                              subtitle: TextField(
-                                                controller: destinationController,
-                                                onChanged: (value) {
-                                                 appState.address = value;
-                                                },
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(top: 50.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              ListTile(
+                                                title: Text('Drop off',
+                                                    style: TextStyle(
+                                                        fontSize: 13.0, color: Colors.grey)),
+                                                subtitle: TextField(
+                                                  controller: destinationController,
+                                                  onChanged: (value) {
+                                                   appState.address = value;
+                                                  },
+                                                ),
+                                                trailing: IconButton(
+                                                  icon: Icon(Icons.add),
+                                                  onPressed: () {},
+                                                  alignment: Alignment.topRight,
+                                                ),
                                               ),
-                                              trailing: IconButton(
-                                                icon: Icon(Icons.add),
-                                                onPressed: () {},
-                                                alignment: Alignment.topRight,
+                                              SizedBox(
+                                                height: 10.0,
                                               ),
-                                            ),
-                                            SizedBox(
-                                              height: 10.0,
-                                            ),
 //
 //                        ListTile(
 //                          title: Text(
@@ -290,7 +236,8 @@ final _formkey = GlobalKey<FormState>();
 
 
 
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       )
                                     ],

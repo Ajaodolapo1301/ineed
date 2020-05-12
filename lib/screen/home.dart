@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
 
   List<Widget> _screens = [
   Main(),
-    AddErrand(),
+
     ProductPage(),
     Account()
   ];
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
           items: <Widget>[
 
             Icon(Icons.home, size: 30),
-            Icon(Icons.add, size: 30),
+
             Icon(Icons.account_balance_wallet, size: 30),
             Icon(Icons.perm_contact_calendar, size: 30),
           ],

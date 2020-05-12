@@ -44,8 +44,8 @@ class AppState with ChangeNotifier{
 
       "time" : " 2 hours ago",
       "location" : "Lagos",
-      "text" : "  ' Dui`s aute irure dolor in reprehenderit in voluptate quis nostrud' "
-          "  ' exercitation ullamco laboris nisi ut aliquip ex ea commodo qui' " ,
+      "text" : "  ' Dui`s aute irure dolor in reprehenderit in voluptate quis nostrud' ",
+        "userPics" : "images/avi.png",
       "price" :  '17000',
     },
 
