@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ReusableSingleCard extends StatelessWidget {
-  final String userPics;
+
   final String name;
   final String time;
   final String location;
@@ -10,7 +10,7 @@ class ReusableSingleCard extends StatelessWidget {
   final String price;
 
   ReusableSingleCard(
-      {this.userPics,
+      {
         this.name,
         this.time,
         this.location,
@@ -34,31 +34,31 @@ class ReusableSingleCard extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 30.0,
-                  child: Image.asset(userPics),
+                  child: Image.asset("images/avi.png"),
                 ),
               ),
             ),
             Expanded(
               flex: 4,
               child: Container(
+                margin: EdgeInsets.only(left: 5.0, top: 10, right: 10, bottom: 10),
                 child: Column(
+//                  mainAxisAlignment: MainAxisAlignment.space,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Container(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 3.0, top: 5.0),
-                            child: Text(
-                              name,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 20.0),
-                            ),
+                          child: Text(
+                            name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 20.0),
                           ),
                         ),
                         Spacer(),
                         Container(
-                          margin: EdgeInsets.only(right: 15.0),
+
                           child: Text(
                             time,
                             style: TextStyle(color: Colors.black26),
@@ -67,7 +67,7 @@ class ReusableSingleCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 3.0,
+                      height: 10.0,
                     ),
                     Container(
                       child: Row(
@@ -78,7 +78,7 @@ class ReusableSingleCard extends StatelessWidget {
                             color: Colors.red,
                           ),
                           SizedBox(
-                            width: 5.0,
+                            width: 3.0,
                           ),
                           Text(
                             location,
@@ -90,15 +90,10 @@ class ReusableSingleCard extends StatelessWidget {
                     SizedBox(
                       height: 10.0,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 5.0),
-                      child: Container(
-                        child: Text(text),
-                      ),
+             Container(
+                      child: Text(text),
                     ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
+
                     Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +101,7 @@ class ReusableSingleCard extends StatelessWidget {
                         Container(
                             margin: EdgeInsets.only(bottom: 5.0),
                             child: Text(
-                              '\$$price',
+                              ' NGN $price',
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Colors.green),
@@ -130,3 +125,5 @@ class ReusableSingleCard extends StatelessWidget {
     );
   }
 }
+
+

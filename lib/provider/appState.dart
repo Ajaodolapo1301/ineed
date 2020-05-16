@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:ineed_app/model/comment.dart';
 import 'package:ineed_app/model/errand.dart';
 
 class AppState with ChangeNotifier{
@@ -36,20 +37,38 @@ class AppState with ChangeNotifier{
 
 
 
-  List timeline = [
+  List<Errand> timeline = [
+      Errand(
+        name: "Ola",
+        text: "Ten bags of rice",
+        price: 3000,
+        time: " 2 hours ago",
+        location: "Abuja"
 
-    {
-      "name": "Ola",
-      "pics" : "images/gool.png",
+      )
+//    {
+//      "name": "Ola",
+//      "pics" : "images/gool.png",
+//
+//      "time" : " 2 hours ago",
+//      "location" : "Lagos",
+//      "text" : "  ' Dui`s aute irure dolor in reprehenderit in voluptate quis nostrud' ",
+//        "userPics" : "images/avi.png",
+//      "price" :  '17000',
+//    },
 
-      "time" : " 2 hours ago",
-      "location" : "Lagos",
-      "text" : "  ' Dui`s aute irure dolor in reprehenderit in voluptate quis nostrud' ",
-        "userPics" : "images/avi.png",
-      "price" :  '17000',
-    },
+
+  ];
 
 
+
+  List <Comment>comment = [
+    Comment(
+      name: "Ade", text: "ill collect 1 mill"
+    ),
+    Comment(
+        name: "Ade", text: "ill collect 1 mill"
+    )
   ];
 
 }

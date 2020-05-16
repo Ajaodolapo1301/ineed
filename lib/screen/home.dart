@@ -2,7 +2,6 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ineed_app/constants/colorConstants.dart';
 import 'package:ineed_app/screen/account.dart';
-import 'package:ineed_app/screen/addErrand.dart';
 import 'package:ineed_app/screen/homePage.dart';
 import 'package:ineed_app/screen/products.dart';
 

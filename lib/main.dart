@@ -43,7 +43,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
 //        backgroundColor: kPrimaryColor,
-
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: kPrimaryColor
+        )
       ),
 
       home: SplashPage(

@@ -33,50 +33,52 @@ class _AccountState extends State<Account> {
         ),
 
 
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
 SizedBox(height: 20.0,),
-            Center(
-              child: Column(
-                children: <Widget>[
-                  CircleAvatar(
-                    backgroundColor: kFaded,
-                    radius: 60,
-                  ),
-                  SizedBox(height: 10.0,),
-                  Text('Jenny Limar', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-                  Text('Lagos', style: TextStyle(fontSize: 20, color: kFaded, fontWeight: FontWeight.w500),),
-                ],
+              Center(
+                child: Column(
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundColor: kFaded,
+                      radius: 60,
+                    ),
+                    SizedBox(height: 10.0,),
+                    Text('Jenny Limar', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+                    Text('Lagos', style: TextStyle(fontSize: 20, color: kFaded, fontWeight: FontWeight.w500),),
+                  ],
+                ),
               ),
-            ),
 
-            SizedBox(height: 20.0,),
-        AccountItems(
-          text: "Payment Method",
-          onpress: null,
-        ),
-          Divider(thickness: 2.0,),
-            AccountItems(
-              text: "Invite Friends",
-              onpress: null,
-            ),
+              SizedBox(height: 20.0,),
+          AccountItems(
+            text: "Payment Method",
+            onpress: null,
+          ),
             Divider(thickness: 2.0,),
-            AccountItems(
-              text: "Settings",
-              onpress: null,
-            ),
-            Divider(thickness: 2.0,),
-            AccountItems(
-              text: "Logout",
-              onpress: (){
+              AccountItems(
+                text: "Invite Friends",
+                onpress: null,
+              ),
+              Divider(thickness: 2.0,),
+              AccountItems(
+                text: "Settings",
+                onpress: null,
+              ),
+              Divider(thickness: 2.0,),
+              AccountItems(
+                text: "Logout",
+                onpress: (){
 
-              }
-            ),
-            Divider(thickness: 2.0,),
-          ],
+                }
+              ),
+              Divider(thickness: 2.0,),
+            ],
+          ),
         ),
       ),
     );
