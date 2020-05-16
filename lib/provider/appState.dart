@@ -46,16 +46,7 @@ class AppState with ChangeNotifier{
         location: "Abuja"
 
       )
-//    {
-//      "name": "Ola",
-//      "pics" : "images/gool.png",
-//
-//      "time" : " 2 hours ago",
-//      "location" : "Lagos",
-//      "text" : "  ' Dui`s aute irure dolor in reprehenderit in voluptate quis nostrud' ",
-//        "userPics" : "images/avi.png",
-//      "price" :  '17000',
-//    },
+
 
 
   ];
