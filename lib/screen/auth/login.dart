@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ineed_app/constants/colorConstants.dart';
+import 'package:ineed_app/provider/loginState.dart';
 import 'package:ineed_app/screen/auth/register.dart';
 import 'package:ineed_app/screen/home.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -15,12 +17,30 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formkey = GlobalKey<FormState>();
-  var id;
+var email;
   var password;
   bool isLoading  = false;
   bool hidePassword = true;
+LoginState   loginState;
+
+
+
+
+  void _showMsg(body) {
+    final snackBar = SnackBar(
+      content: Text(body),
+      action: SnackBarAction(
+        label: "Close",
+        onPressed: (){
+          Navigator.pop(context);
+        },
+      ),
+    );
+    _scaffoldKey.currentState.showSnackBar(snackBar);
+  }
   @override
   Widget build(BuildContext context) {
+    loginState = Provider.of<LoginState>(context);
     return Scaffold(
       key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -61,19 +81,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: <Widget>[
                     TextFormField(
                         cursorColor: kFaded,
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
 
                             focusedBorder:UnderlineInputBorder(
                               borderSide:  BorderSide(color: kPrimaryColor, width: 1.0),
 
                             ),
-                            suffixIcon:   InkWell(
-                              onTap: _touchId,
-                              child: Container(height: 2,
-                                  width: 10,
-                                  child: SvgPicture.asset('images/Vector.svg')),
-                            ) ,
+                            suffixIcon: Icon(Icons.email),
                             labelText: 'Email' ,
                             labelStyle: TextStyle(fontSize: 15, color: kFaded )
                         ),
@@ -81,7 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (value.isEmpty) {
                             return ' please fill this space';
                           }
-                          id = value;
+                          email = value;
+
                           return null;
                         }
                     ),
@@ -117,10 +133,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 20,),
                     InkWell(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
-//                        if( _formkey.currentState.validate()){
-//                        _handleLogin();
-//                        }
+
+                        if( _formkey.currentState.validate()){
+                        _handleLogin();
+                        }
                       },
                       child: Container(
                         height: 46,
@@ -163,6 +179,39 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+
+
+
+
+
+  _handleLogin() async{
+
+    setState(() {
+      isLoading = true;
+    });
+
+    var result = await  loginState.login(email: email, password: password);
+    if(result['error'] == true){
+      _showMsg(result['message']);
+
+    }else{
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Home()),
+              (Route<dynamic> route) => false);
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+
+
+
+
 
   void _touchId() {
   }

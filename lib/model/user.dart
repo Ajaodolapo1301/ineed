@@ -14,7 +14,7 @@ class User extends HiveObject{
   String email;
 
   @HiveField(2)
-  int userId;
+  String userId;
 
 
   @HiveField(3)
@@ -31,12 +31,12 @@ class User extends HiveObject{
 
 
   factory User.fromJson(Map <String,  dynamic> json)=>User(
-      token: json['access_token'],
-      userId : json['user']['id'],
-      name :json['user']['name'],
-      email : json['user']['email'],
-      phone : json['user']['phone'],
-    username: json["user"]["username"]
+      token: json["payload"]['apikey'],
+      userId : json['payload']['_id'],
+      name :json['payload']['name'],
+      email : json['payload']['email'],
+      phone : json['payload']['phone'],
+    username: json["payload"]["username"]
 
 
 

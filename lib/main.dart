@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:ineed_app/constants/colorConstants.dart';
 import 'package:ineed_app/model/user.dart';
 import 'package:ineed_app/provider/appState.dart';
+import 'package:ineed_app/provider/loginState.dart';
 import 'package:ineed_app/screen/auth/splashPage.dart';
 
 
@@ -22,7 +23,7 @@ Future<void> main() async{
   User user = box.get('user', defaultValue: null);
   runApp(MultiProvider(
       providers: [
-//        ChangeNotifierProvider(create: (_)=>LoginState()),
+        ChangeNotifierProvider(create: (_)=>LoginState(user)),
         ChangeNotifierProvider(create: (_) => AppState()),
 
 
