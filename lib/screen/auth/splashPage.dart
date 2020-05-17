@@ -24,8 +24,8 @@ class _SplashPageState extends State<SplashPage> {
 
     super.initState();
 
-    Timer(Duration(seconds: 5,) , ()=> Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()))  );
-    print(widget.user);
+
+    Timer(Duration(seconds: 5,) , ()=> widget.user != null ?  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home())) :Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()))  );
 
   }
 

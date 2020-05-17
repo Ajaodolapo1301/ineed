@@ -1,7 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:ineed_app/constants/colorConstants.dart';
+import 'package:ineed_app/provider/appState.dart';
+import 'package:ineed_app/provider/loginState.dart';
 import 'package:ineed_app/reuseable/accountItems.dart';
+import 'package:ineed_app/screen/auth/login.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -11,8 +16,12 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
+  LoginState loginState;
+AppState appState;
   @override
   Widget build(BuildContext context) {
+    loginState = Provider.of<LoginState>(context);
+    appState = Provider.of<AppState>(context);
     return Scaffold(
         appBar: AppBar(
           elevation: 0.3,
@@ -48,8 +57,8 @@ SizedBox(height: 20.0,),
                       radius: 60,
                     ),
                     SizedBox(height: 10.0,),
-                    Text('Jenny Limar', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-                    Text('Lagos', style: TextStyle(fontSize: 20, color: kFaded, fontWeight: FontWeight.w500),),
+                    Text(  loginState.user.name , style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+                    Text( appState.address != null ?appState.address: "UnKnown" , style: TextStyle(fontSize: 20, color: kFaded, fontWeight: FontWeight.w500),),
                   ],
                 ),
               ),
@@ -70,11 +79,14 @@ SizedBox(height: 20.0,),
                 onpress: null,
               ),
               Divider(thickness: 2.0,),
-              AccountItems(
-                text: "Logout",
-                onpress: (){
+              InkWell(
+                onTap: (){
+                  _logOut(context);
+                },
+                child: AccountItems(
+                  text: "Logout",
 
-                }
+                ),
               ),
               Divider(thickness: 2.0,),
             ],
@@ -83,7 +95,18 @@ SizedBox(height: 20.0,),
       ),
     );
   }
-
+  void _logOut(BuildContext context) async{
+    final box = Hive.box('user');
+    box.put('user',null);
+//    Navigator.pop(context);
+//    Navigator.pop(context);
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (context) => LoginScreen()),
+            (Route<dynamic> route) => false);
+//    }
+  }
 
 }
 
