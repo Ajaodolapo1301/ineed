@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:ineed_app/screen/auth/login.dart';
 import 'package:ineed_app/screen/home.dart';
 
 
@@ -23,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
 
     super.initState();
 
-    Timer(Duration(seconds: 5,) , ()=> Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()))  );
+    Timer(Duration(seconds: 5,) , ()=> Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()))  );
     print(widget.user);
 
   }

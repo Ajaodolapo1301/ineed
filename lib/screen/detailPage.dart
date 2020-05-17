@@ -89,7 +89,7 @@ class _DetailPageState extends State<DetailPage> {
                     children: <Widget>[
                       Container(
                         width: double.infinity,
-                        child: Text(widget.text, style: TextStyle(color: Colors.grey[800], fontSize: 15, height: 1.5, ),
+                        child: Text(widget.text, style: TextStyle(color: Colors.grey[800], fontSize: 20, height: 1.5, ),
                         ),
                       ),
                     ],

@@ -23,10 +23,11 @@ class User extends HiveObject{
   @HiveField(4)
   String phone;
 
+  @HiveField(5)
+  String username;
 
 
-
-  User({this.name, this.userId, this.token, this.email,  this.phone});
+  User({this.name, this.userId, this.token, this.email, this.username,  this.phone});
 
 
   factory User.fromJson(Map <String,  dynamic> json)=>User(
@@ -35,6 +36,7 @@ class User extends HiveObject{
       name :json['user']['name'],
       email : json['user']['email'],
       phone : json['user']['phone'],
+    username: json["user"]["username"]
 
 
 
